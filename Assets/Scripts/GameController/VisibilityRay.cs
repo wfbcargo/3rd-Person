@@ -9,7 +9,6 @@ namespace Assets.Scripts.GameController
         public Transform ToPoint;
 
         private GameObject _lastHitObject;
-        private Material _lastHitMaterial;
         // Start is called before the first frame update
         void Start()
         {
@@ -19,7 +18,7 @@ namespace Assets.Scripts.GameController
         // Update is called once per frame
         void Update()
         {
-            var ray = new Ray(transform.position, transform.forward);
+            var ray = new Ray(transform.position, ToPoint.position - transform.position);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Vector3.Distance(transform.position, ToPoint.position)))
             {
@@ -28,19 +27,16 @@ namespace Assets.Scripts.GameController
                 {
                     if (_lastHitObject != null)
                     {
-                        _lastHitObject.GetComponent<Renderer>().material = _lastHitMaterial;
+                        _lastHitObject.GetComponent<MeshRenderer>().enabled = true;
                     }
-
                     _lastHitObject = hitObject;
-                    _lastHitMaterial = hitObject.GetComponent<Renderer>().material;
-                    var newMaterial = new Material(_lastHitMaterial);
-                    newMaterial.color = new Color(newMaterial.color.r, newMaterial.color.g, newMaterial.color.b, 0.5f);
-                    hitObject.GetComponent<Renderer>().material = newMaterial;
+                    _lastHitObject.GetComponent<MeshRenderer>().enabled = false;
+
                 }
             }
             else if (_lastHitObject != null)
             {
-                _lastHitObject.GetComponent<Renderer>().material = _lastHitMaterial;
+                _lastHitObject.GetComponent<MeshRenderer>().enabled = true;
                 _lastHitObject = null;
             }
         }

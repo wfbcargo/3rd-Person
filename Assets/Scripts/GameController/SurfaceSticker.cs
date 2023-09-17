@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.GameController
@@ -7,7 +8,6 @@ namespace Assets.Scripts.GameController
     public class SurfaceSticker : MonoBehaviour
     {
         public Transform sticker;
-        public Terrain terrain;
 
         public float maxClimb = 0.01f;
 
@@ -22,21 +22,49 @@ namespace Assets.Scripts.GameController
         // Update is called once per frame
         void Update()
         {
-            var activeHeight = terrain.SampleHeight(sticker.position);
-
-            var newStickerPosition = new Vector3(transform.position.x, activeHeight, transform.position.z);
-            var movedVector = newStickerPosition - sticker.position;
-
-            if(_lastHeight > 0 && (activeHeight - _lastHeight >= maxClimb))
+            var ray = new Ray(transform.position, transform.up * -1);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 10f))
             {
-                transform.position = _lastPosition;
+                var hitObject = hit.collider.gameObject;
+                if (hitObject != null)
+                {
+                    var newStickerPosition = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+                    var movedVector = newStickerPosition - sticker.position;
+                    transform.position += movedVector;
+                    _lastHeight = hit.point.y;
+                    _lastPosition = transform.position;
+                }
             }
             else
             {
-                transform.position += movedVector;
-                _lastHeight = activeHeight;
-                _lastPosition = transform.position;
+                var terrain = GetClosestTerrain();
+                if (terrain == null)
+                {
+                    return;
+                }
+                var activeHeight = terrain.SampleHeight(sticker.position);
+
+                var newStickerPosition = new Vector3(transform.position.x, activeHeight, transform.position.z);
+                var movedVector = newStickerPosition - sticker.position;
+
+                if (_lastHeight > 0 && (activeHeight - _lastHeight >= maxClimb))
+                {
+                    transform.position = _lastPosition;
+                }
+                else
+                {
+                    transform.position += movedVector;
+                    _lastHeight = activeHeight;
+                    _lastPosition = transform.position;
+                }
             }
+        }
+
+        public Terrain GetClosestTerrain()
+        {
+            var terrains = Terrain.activeTerrains;
+            return terrains.ToList().OrderBy(t => Vector3.Distance(t.GetPosition(), transform.position)).FirstOrDefault();
         }
     }
 }

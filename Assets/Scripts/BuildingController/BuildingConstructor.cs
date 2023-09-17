@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.BuildingController.RoomController;
+﻿using Assets.Scripts.BuildingController.Models;
+using Assets.Scripts.BuildingController.RoomController;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.BuildingController
 {
-    internal class BuildingConstructor
+    public class BuildingConstructor
     {
         private RoomConstructor roomConstructor;
+        private BuildingTypeConstructor buildingTypeConstructor;
         private string seed;
 
-        public BuildingConstructor(string seed)
+        public BuildingConstructor(string seed, BuildingType buildingType)
         {
             roomConstructor = new RoomConstructor();
             this.seed = seed;
+            buildingTypeConstructor = GetBuildingTypeConstructor(buildingType);
         }
 
-        public Building GenerateBuilding(BuildingType buildingType)
+        public Building GenerateBuilding()
         {
-            var buildingTypeConstructor = GetBuildingTypeConstructor(buildingType);
             var building = buildingTypeConstructor.GenerateBuilding();
-
             return building;
         }
 

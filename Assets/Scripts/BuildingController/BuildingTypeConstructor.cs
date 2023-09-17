@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.BuildingController.RoomController;
+﻿using Assets.Scripts.BuildingController.Models;
+using Assets.Scripts.BuildingController.RoomController;
 using System;
 using System.Collections.Generic;
 using System.Linq;

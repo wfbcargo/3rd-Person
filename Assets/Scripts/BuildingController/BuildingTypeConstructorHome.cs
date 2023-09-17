@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.BuildingController.RoomController;
+﻿using Assets.Scripts.BuildingController.Models;
+using Assets.Scripts.BuildingController.RoomController;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +61,8 @@ namespace Assets.Scripts.BuildingController
             bool isGoingRight = true;
 
             int overClockCounter = 0;
+            var maxX = 0;
+            var maxZ = 0;
 
             while(randomizedRooms.Any() && overClockCounter < 1000)
             {
@@ -75,6 +78,16 @@ namespace Assets.Scripts.BuildingController
                     currentX = 0;
                     currentZ += 1;
                     isGoingRight = true;
+                }
+
+                if(currentZ > maxZ)
+                {
+                    maxZ = currentZ;
+                }
+
+                if(currentX > maxX)
+                {
+                    maxX = currentX;
                 }
 
                 if(SpaceOccupied(orderedRooms, currentX, currentZ))
@@ -103,7 +116,11 @@ namespace Assets.Scripts.BuildingController
             {
                 Rooms = orderedRooms,
                 X = 0,
+                Y = 0,
                 Z = 0,
+                Width = maxX + 1,
+                Depth = maxZ + 1,
+                Height = 1
             };
 
             AddDoorsToRooms(building);

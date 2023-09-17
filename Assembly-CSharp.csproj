@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{B0B85706-45B6-514E-02C8-E2A2B20D17CB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -61,30 +60,35 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\TerrainController\TerrainManager.cs" />
     <Compile Include="Assets\Scripts\GameController\Camera_Focus.cs" />
+    <Compile Include="Assets\Scripts\BuildingController\Models\Neighborhood.cs" />
+    <Compile Include="Assets\Scripts\BuildingController\Models\BuildingType.cs" />
     <Compile Include="Assets\Scripts\GameController\RayLookingAtDetector.cs" />
+    <Compile Include="Assets\Scripts\BuildingController\Models\Building.cs" />
     <Compile Include="Assets\Scripts\TerrainController\TerrainConstructor.cs" />
     <Compile Include="Assets\Scripts\TerrainController\MonoTerrainCreator.cs" />
     <Compile Include="Assets\Scripts\GameController\LookDetectors\LookedAtHandler.cs" />
+    <Compile Include="Assets\Scripts\BuildingController\Models\NeightborhoodBuilding.cs" />
     <Compile Include="Assets\Scripts\GameController\FirstPersonMouseLook.cs" />
     <Compile Include="Assets\Scripts\GameController\ClickDetectors\ObjectClickHandler.cs" />
+    <Compile Include="Assets\Scripts\BuildingController\NeighborhoodConstructor.cs" />
     <Compile Include="Assets\Scripts\GameController\VisibilityRay.cs" />
     <Compile Include="Assets\Scripts\BuildingController\BuildingConstructor.cs" />
     <Compile Include="Assets\Scripts\TerrainController\TerrainDimensions.cs" />
+    <Compile Include="Assets\Scripts\BuildingController\Models\NeighborhoodType.cs" />
     <Compile Include="Assets\Scripts\GameController\WallDetector.cs" />
     <Compile Include="Assets\Scripts\BuildingController\RoomController\RoomType.cs" />
     <Compile Include="Assets\Scripts\BuildingController\BuildingTypeConstructor.cs" />
+    <Compile Include="Assets\Scripts\BuildingController\MonoMultiBuildingBuilder.cs" />
     <Compile Include="Assets\Scripts\GameController\FocusTarget.cs" />
     <Compile Include="Assets\Scripts\BuildingController\BuildingTypeConstructorHome.cs" />
     <Compile Include="Assets\Scripts\BuildingController\RoomController\Room.cs" />
     <Compile Include="Assets\Scripts\GameController\WASD_Mover.cs" />
     <Compile Include="Assets\Scripts\Debugging\DirectionVisualizer.cs" />
-    <Compile Include="Assets\Scripts\BuildingController\BuildingType.cs" />
     <Compile Include="Assets\Scripts\BuildingController\RoomController\RoomConstructor.cs" />
     <Compile Include="Assets\Scripts\GameController\Looker.cs" />
     <Compile Include="Assets\Scripts\GameController\SurfaceSticker.cs" />
     <Compile Include="Assets\Scripts\GameController\ThirdPersonMouseLook.cs" />
-    <Compile Include="Assets\Scripts\BuildingController\Building.cs" />
-    <Compile Include="Assets\Scripts\BuildingController\MonoBuildingCreator.cs" />
+    <Compile Include="Assets\Scripts\BuildingController\MonoBuildingBuilder.cs" />
     <Compile Include="Assets\Scripts\BuildingController\RoomController\RoomCell.cs" />
   </ItemGroup>
   <ItemGroup>

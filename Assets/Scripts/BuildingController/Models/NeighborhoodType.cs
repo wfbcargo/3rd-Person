@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts.BuildingController
+namespace Assets.Scripts.BuildingController.Models
 {
-    public enum BuildingType
+    public enum NeighborhoodType
     {
-        House,
-        Garage,
-        Store
+        Suburb
     }
 }
