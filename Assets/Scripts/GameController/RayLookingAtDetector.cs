@@ -1,4 +1,3 @@
-using Assets.Scripts.GameController.ClickDetectors;
 using Assets.Scripts.GameController.LookDetectors;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,14 +22,6 @@ public class RayLookingAtDetector : MonoBehaviour
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
             var gameobject = hit.collider.gameObject;
-            if (Input.GetMouseButtonDown(0))
-            {
-                var clickComponent = gameobject.GetComponent<ObjectClickHandler>();
-                if (clickComponent != null)
-                {
-                    clickComponent.OnClick();
-                }
-            }
 
             if (gameObject != lastLookedAtObject)
             {

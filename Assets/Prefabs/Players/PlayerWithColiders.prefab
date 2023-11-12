@@ -143,6 +143,7 @@ Transform:
   m_Children:
   - {fileID: 8129328561252907487}
   - {fileID: 2155011239306037752}
+  - {fileID: 8985582017193126063}
   m_Father: {fileID: 3811482739576458208}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1329181309302464981
@@ -179,7 +180,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1512011172398568102}
-  - {fileID: 8985582017193126063}
   - {fileID: 8728479800879730062}
   - {fileID: 6924721485472385968}
   m_Father: {fileID: 0}
@@ -226,7 +226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sticker: {fileID: 8728479800879730062}
-  terrain: {fileID: 0}
   maxClimb: 0.01
 --- !u!114 &8673664748607625096
 MonoBehaviour:
@@ -613,7 +612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6167033313029072737}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -621,7 +620,7 @@ Transform:
   - {fileID: 4771949935792337318}
   - {fileID: 543660282301446602}
   - {fileID: 1629646978330779386}
-  m_Father: {fileID: 3811482739576458208}
+  m_Father: {fileID: 1512011172398568102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5954397118553412539
 MonoBehaviour:

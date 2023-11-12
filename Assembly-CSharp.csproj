@@ -59,36 +59,53 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\TerrainController\TerrainManager.cs" />
+    <Compile Include="Assets\Scripts\TriggerType\ITriggerOnDie.cs" />
     <Compile Include="Assets\Scripts\GameController\Camera_Focus.cs" />
     <Compile Include="Assets\Scripts\BuildingController\Models\Neighborhood.cs" />
+    <Compile Include="Assets\Scripts\Bots\RoutePoint.cs" />
     <Compile Include="Assets\Scripts\BuildingController\Models\BuildingType.cs" />
     <Compile Include="Assets\Scripts\GameController\RayLookingAtDetector.cs" />
     <Compile Include="Assets\Scripts\BuildingController\Models\Building.cs" />
     <Compile Include="Assets\Scripts\TerrainController\TerrainConstructor.cs" />
     <Compile Include="Assets\Scripts\TerrainController\MonoTerrainCreator.cs" />
+    <Compile Include="Assets\Scripts\TriggerType\IActionTrigger.cs" />
     <Compile Include="Assets\Scripts\GameController\LookDetectors\LookedAtHandler.cs" />
     <Compile Include="Assets\Scripts\BuildingController\Models\NeightborhoodBuilding.cs" />
     <Compile Include="Assets\Scripts\GameController\FirstPersonMouseLook.cs" />
-    <Compile Include="Assets\Scripts\GameController\ClickDetectors\ObjectClickHandler.cs" />
+    <Compile Include="Assets\Scripts\Bots\BaseBot.cs" />
     <Compile Include="Assets\Scripts\BuildingController\NeighborhoodConstructor.cs" />
     <Compile Include="Assets\Scripts\GameController\VisibilityRay.cs" />
     <Compile Include="Assets\Scripts\BuildingController\BuildingConstructor.cs" />
+    <Compile Include="Assets\Scripts\GameController\KeyBinder.cs" />
     <Compile Include="Assets\Scripts\TerrainController\TerrainDimensions.cs" />
     <Compile Include="Assets\Scripts\BuildingController\Models\NeighborhoodType.cs" />
     <Compile Include="Assets\Scripts\GameController\WallDetector.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\Gun.cs" />
     <Compile Include="Assets\Scripts\BuildingController\RoomController\RoomType.cs" />
     <Compile Include="Assets\Scripts\BuildingController\BuildingTypeConstructor.cs" />
+    <Compile Include="Assets\Scripts\GameManager\Gravity.cs" />
     <Compile Include="Assets\Scripts\BuildingController\MonoMultiBuildingBuilder.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\Shotgun.cs" />
     <Compile Include="Assets\Scripts\GameController\FocusTarget.cs" />
     <Compile Include="Assets\Scripts\BuildingController\BuildingTypeConstructorHome.cs" />
+    <Compile Include="Assets\Scripts\GameManager\GlobalStartup.cs" />
     <Compile Include="Assets\Scripts\BuildingController\RoomController\Room.cs" />
-    <Compile Include="Assets\Scripts\GameController\WASD_Mover.cs" />
     <Compile Include="Assets\Scripts\Debugging\DirectionVisualizer.cs" />
     <Compile Include="Assets\Scripts\BuildingController\RoomController\RoomConstructor.cs" />
     <Compile Include="Assets\Scripts\GameController\Looker.cs" />
+    <Compile Include="Assets\Scripts\GameController\CharacterMover.cs" />
     <Compile Include="Assets\Scripts\GameController\SurfaceSticker.cs" />
+    <Compile Include="Assets\Scripts\GameController\GravityDetector.cs" />
     <Compile Include="Assets\Scripts\GameController\ThirdPersonMouseLook.cs" />
+    <Compile Include="Assets\Scripts\TriggerType\ITriggerOnCollide.cs" />
     <Compile Include="Assets\Scripts\BuildingController\MonoBuildingBuilder.cs" />
+    <Compile Include="Assets\Scripts\Bots\BotRoute.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\Cannon.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Attributes\Health.cs" />
+    <Compile Include="Assets\Scripts\Attributes\Damage.cs" />
+    <Compile Include="Assets\Scripts\Bots\GoToPoint.cs" />
+    <Compile Include="Assets\Scripts\Attributes\Displays\HealthBar.cs" />
     <Compile Include="Assets\Scripts\BuildingController\RoomController\RoomCell.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -737,8 +754,14 @@
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Updater">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
@@ -770,11 +793,17 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
